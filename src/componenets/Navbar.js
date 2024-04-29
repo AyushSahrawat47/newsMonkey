@@ -6,7 +6,7 @@ function Navbar(props) {
         <div>
             <nav className="navbar navbar-expand-lg  ">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Navbar</Link>
+                    <Link className="navbar-brand" to="/">NewsApp</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -18,8 +18,22 @@ function Navbar(props) {
                             <li className="nav-item text-light"> <Link className="nav-link" to="/science">Science</Link></li>
                             <li className="nav-item text-light"> <Link className="nav-link" to="/sports">Sports</Link></li>
                             <li className="nav-item text-light"> <Link className="nav-link" to="/technology">Technology</Link></li>
+                            {/* <li class="nav-item dropdown">
+                                <Link class="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Language
+                                </Link>
+                                <ul class="dropdown-menu">
+                                    <li><Link class="dropdown-item" to="/english">English</Link></li>
+                                    <li><Link class="dropdown-item" to="/german">German</Link></li>
+                                    <li><Link class="dropdown-item" to="/arabic">Arabic</Link></li>
+                                    <li><Link class="dropdown-item" to="/spanish">Spanish</Link></li>
+                                    <li><Link class="dropdown-item" to="/french">French</Link></li>
+                                </ul>
+                            </li> */}
                         </ul>
                     </div>
+
+
                 </div>
             </nav>
         </div>
@@ -31,4 +45,5 @@ Navbar.propTypes = {
 }
 
 export default Navbar
+
 
