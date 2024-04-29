@@ -28,6 +28,16 @@ export class News extends Component {
             totalResults: 0,
         }
     }
+    async updateNews() {
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bb6ff936f0054d97bf8e07695885a841&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        this.setState({ loading: true })
+        let data = await fetch(url);
+        let parsedData = await data.json();
+        this.setState({
+            articles: parsedData.articles,
+            loading: false
+        });
+    }
 
     async componentDidMount() {
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bb6ff936f0054d97bf8e07695885a841&page=1&pageSize=${this.props.pageSize}`;
@@ -41,27 +51,13 @@ export class News extends Component {
         })
     }
 
-    handleNext = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bb6ff936f0054d97bf8e07695885a841&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-        this.setState({ loading: true })
-        let data = await fetch(url);
-        let parsedData = await data.json();
-        this.setState({
-            articles: parsedData.articles,
-            page: this.state.page + 1,
-            loading: false
-        });
+    handleNext = () => {
+        this.setState({page: this.state.page + 1});
+        this.updateNews();
     };
-    handlePrev = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bb6ff936f0054d97bf8e07695885a841&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-        this.setState({ loading: true })
-        let data = await fetch(url);
-        let parsedData = await data.json();
-        this.setState({
-            articles: parsedData.articles,
-            page: this.state.page - 1,
-            loading: false
-        })
+    handlePrev =() => {
+        this.setState({page: this.state.page - 1})
+        this.updateNews()
     }
 
 

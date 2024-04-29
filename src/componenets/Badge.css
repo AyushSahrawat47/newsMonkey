@@ -1,7 +1,7 @@
-div {
+.badgediv {
     position: relative;
-    /* марджин просто чтобы было видно в редакторе   */
-    margin-top: 50px; 
+    bottom: 1020px;
+    right: 70px;
   }
   
   .pin {
